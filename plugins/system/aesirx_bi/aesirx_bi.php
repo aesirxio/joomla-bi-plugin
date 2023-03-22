@@ -37,7 +37,7 @@ class PlgSystemAesirx_Bi extends CMSPlugin
             window.env.REACT_APP_CLIENT_SECRET="' . $params->get('react_app_client_secret') . '"
             window.env.REACT_APP_LICENSE="' . $params->get('react_app_license') . '"
             window.env.REACT_APP_ENDPOINT_URL="' . $params->get('react_app_endpoint_url') . '"
-            window.env.REACT_APP_DATA_STREAM="' . $params->get('react_app_data_stream') . '"
+            window.env.REACT_APP_DATA_STREAM="' . json_decode($params->get('react_app_data_stream')) . '"
         '
 		);
 	}
