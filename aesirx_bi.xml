@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>COM_AESIRX_BI</name>
+    <creationDate>2023-03-21</creationDate>
+    <copyright>Copyright (C) 2016 - 2023 Aesir. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Aesirx</author>
+    <authorEmail>info@aesirx.io</authorEmail>
+    <authorUrl>aesirx.io</authorUrl>
+    <version>__DEPLOY_VERSION__</version>
+    <description>COM_AESIRX_BI_XML_DESCRIPTION</description>
+    <namespace path="src">Aesirxbi\Component\Aesirx_bi</namespace>
+    <scriptfile>install.php</scriptfile>
+    <administration>
+        <menu view="dashboards">COM_AESIRX_BI</menu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>assets</folder>
+        </files>
+        <languages folder="administrator/languages">
+			<language tag="en-GB">en-GB/com_aesirx_bi.ini</language>
+			<language tag="en-GB">en-GB/com_aesirx_bi.sys.ini</language>
+        </languages>
+    </administration>
+    <plugins>
+        <plugin group="system" name="aesirx_bi" published="published" />
+    </plugins>
+</extension>
+
+
