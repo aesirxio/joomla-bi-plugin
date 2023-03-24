@@ -58,10 +58,6 @@ module.exports = (env, argv) => {
                 destination: pluginPath + '/administrator' + component,
               },
               {
-                source: path.resolve(__dirname, './extensions/plugins'),
-                destination: pluginPath + '/plugins',
-              },
-              {
                 source: path.resolve(__dirname, './extensions/install.php'),
                 destination:
                   pluginPath +
@@ -80,7 +76,10 @@ module.exports = (env, argv) => {
           onEnd: {
             copy: [
               {
-                source: path.resolve(__dirname, './assets/images/'),
+                source: path.resolve(
+                  __dirname,
+                  './node_modules/aesirx-bi-app/public/assets/images/'
+                ),
                 destination: pluginPath + '/administrator' + component + '/assets/images/',
               },
             ],
@@ -104,21 +103,7 @@ module.exports = (env, argv) => {
     },
     optimization: {
       splitChunks: {
-        maxInitialRequests: Infinity,
-        minSize: 0,
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name(module) {
-              // get the name. E.g. node_modules/packageName/not/this/part.js
-              // or node_modules/packageName
-              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-
-              // npm package names are URL-safe, but some servers don't like @ symbols
-              return `npm.${packageName.replace('@', '')}`;
-            },
-          },
-        },
+        chunks: 'all',
       },
     },
     resolve: {
@@ -139,7 +124,7 @@ module.exports = (env, argv) => {
       new BrowserSyncPlugin(
         // BrowserSync options
         {
-          proxy: 'http://joomla4.local/',
+          proxy: process.env.proxy,
           notify: true,
         }
       ),

@@ -2,6 +2,13 @@
   #all_header {
     top: 66px !important;
   }
+
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
 }
 
 #content {
