@@ -69,6 +69,13 @@ class HtmlView extends BaseHtmlView
 		$params      = ComponentHelper::getComponent('com_aesirx_bi')->getParams();
 		$dataStreams = $params->get('react_app_data_stream');
 
+		if (empty($dataStreams) || !is_array($dataStreams))
+		{
+			Factory::getApplication()->enqueueMessage(Text::_('COM_AESIRX_BI_ERROR_CONFIGURATION_WARNING'), 'warning');
+
+			return;
+		}
+
 		$streams = [];
 
 		$scripts = '
