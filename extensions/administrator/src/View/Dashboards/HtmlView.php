@@ -8,9 +8,11 @@
  */
 
 namespace Aesirxbi\Component\Aesirx_bi\Administrator\View\Dashboards;
+
 // No direct access
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use \Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use \Aesirxbi\Component\Aesirx_bi\Administrator\Helper\Aesirx_biHelper;
@@ -40,7 +42,7 @@ class HtmlView extends BaseHtmlView
 	{
 		$this->state = $this->get('State');
 
-        Factory::getApplication()->triggerEvent('onBeforeAesirXBiLoaded', []);
+		$this->beforeDisplay();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -55,6 +57,44 @@ class HtmlView extends BaseHtmlView
 	}
 
 	/**
+	 * Method to handle data before display
+	 *
+	 * @return void
+	 * @throws \Exception
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
+	protected function beforeDisplay()
+	{
+		$params      = ComponentHelper::getComponent('com_aesirx_bi')->getParams();
+		$dataStreams = $params->get('react_app_data_stream');
+
+		$streams = [];
+
+		$scripts = '
+          window.env = {};
+            window.env.REACT_APP_CLIENT_ID="' . $params->get('react_app_client_id') . '"
+            window.env.REACT_APP_CLIENT_SECRET="' . $params->get('react_app_client_secret') . '"
+            window.env.REACT_APP_LICENSE="' . $params->get('react_app_license') . '"
+            window.env.REACT_APP_ENDPOINT_URL="' . $params->get('react_app_endpoint_url') . '"
+        ';
+
+		foreach ($dataStreams as $row)
+		{
+			$stream         = new \stdClass();
+			$stream->name   = $row->data_stream_name;
+			$stream->domain = $row->data_stream_domain;
+
+			$streams[] = $stream;
+		}
+
+		$scripts .= 'window.env.REACT_APP_DATA_STREAM=\'' . json_encode($streams) . '\'';
+
+		$document = Factory::getApplication()->getDocument();
+		$document->addScriptDeclaration($scripts);
+	}
+
+	/**
 	 * Add the page title and toolbar.
 	 *
 	 * @return  void
@@ -64,6 +104,14 @@ class HtmlView extends BaseHtmlView
 	protected function addToolbar()
 	{
 		ToolbarHelper::title(Text::_('COM_AESIRX_BI_TITLE_DASHBOARDS'), "generic");
+
+		$toolbar = Toolbar::getInstance('toolbar');
+		$canDo   = Aesirx_biHelper::getActions();
+
+		if ($canDo->get('core.admin'))
+		{
+			$toolbar->preferences('com_aesirx_bi');
+		}
 
 		// Set sidebar action
 		Sidebar::setAction('index.php?option=com_aesirx_bi&view=dashboards');

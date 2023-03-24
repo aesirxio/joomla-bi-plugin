@@ -26,9 +26,6 @@
 			<language tag="en-GB">en-GB/com_aesirx_bi.sys.ini</language>
         </languages>
     </administration>
-    <plugins>
-        <plugin group="system" name="aesirx_bi" published="published" />
-    </plugins>
 </extension>
 
 
