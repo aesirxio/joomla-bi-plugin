@@ -15,7 +15,7 @@ use Joomla\CMS\Component\ComponentHelper;
 $params      = ComponentHelper::getComponent('com_aesirx_bi')->getParams();
 $dataStreams = $params->get('react_app_data_stream', null);
 
-if (empty($dataStreams) || !is_array($dataStreams))
+if (empty($dataStreams) || !is_object($dataStreams))
 {
     return;
 }
