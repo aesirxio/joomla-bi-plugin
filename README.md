@@ -23,10 +23,7 @@ Follow the instructions in: [https://github.com/aesirxio/joomla-analytics-plugin
 ### Download plugin at https://github.com/aesirxio/joomla-bi-plugin/releases and install plugin to Joomla
 
 In Joomla Admin, go to Options of AesirX BI and config the settings:
-1. Get your `REACT_APP_CLIENT_ID` key from https://bi.aesirx.io by creating an account.
-1. Replace the `REACT_APP_CLIENT_SECRET` with the one provided in your profile account.
 1. Replace the `REACT_APP_ENDPOINT_URL` with the link to your `1st party server for AesirX Analytics`.
-1. Replace the `REACT_APP_LICENSE` with the one provided in your profile account.
 1. Replace the `REACT_APP_DATA_STREAM` with the `name` and `domain` to the your data-stream endpoint.
 
 ### Development
