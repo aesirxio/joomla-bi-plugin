@@ -6,7 +6,7 @@ const wwwDir = path.resolve(__dirname, './dist');
 const projectname = 'aesirx-bi';
 
 const sassData = {
-  loader: 'sass-loader'
+  loader: 'sass-loader',
 };
 
 const sassLoader = {
@@ -15,21 +15,6 @@ const sassLoader = {
     MiniCssExtractPlugin.loader,
     'css-loader',
     MediaQueryPlugin.loader,
-    'postcss-loader',
-    sassData,
-  ],
-};
-
-const jceSassLoader = {
-  test: /\.(scss)$/,
-  use: [
-    {
-      loader: MiniCssExtractPlugin.loader,
-      options: {
-        publicPath: '../',
-      },
-    },
-    'css-loader',
     'postcss-loader',
     sassData,
   ],
@@ -73,7 +58,6 @@ module.exports = {
   wwwDir,
   projectname,
   sassLoader,
-  jceSassLoader,
   imageLoader,
   fontLoader,
   jsLoader,

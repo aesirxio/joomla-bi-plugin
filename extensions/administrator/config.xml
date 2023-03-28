@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
     <fieldset label="COM_AESIRX_BI" name="aesirx_bi">
-        <field
+        <!-- <field
                 name="react_app_client_id"
                 type="text"
                 label="PLG_SYSTEM_AESIRX_BI_PARAM_REACT_APP_CLIENT_ID_LABEL"
@@ -18,7 +18,7 @@
                 type="text"
                 label="PLG_SYSTEM_AESIRX_BI_PARAM_REACT_APP_LICENSE_LABEL"
                 class="col-md-12"
-        />
+        /> -->
         <field
                 name="react_app_endpoint_url"
                 type="text"
