@@ -9,6 +9,8 @@
 
 use Joomla\Registry\Registry;
 use Joomla\CMS\Installer\Installer;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 
 defined('_JEXEC') or die;
 
@@ -325,4 +327,24 @@ class Com_Aesirx_BiInstallerScript
 
 		$this->manifest = $parent->getManifest();
 	}
+
+    /**
+     * Method to run after an install/update/uninstall method
+     *
+     * @param   string             $type    type of change (install, update or discover_install)
+     * @param   JInstallerAdapter  $parent  class calling this method
+     *
+     * @return  boolean
+     */
+    public function postflight($type, $parent)
+    {
+        if($type === "uninstall")
+        {
+            return true;
+        }
+
+        Factory::getApplication()->redirect('index.php?option=com_config&view=component&component=com_aesirx_bi');
+
+        return true;
+    }
 }
