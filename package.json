@@ -1,7 +1,7 @@
 {
   "name": "aesirx-bi",
   "version": "1.0.0",
-  "description": "AesirX BI Wordpres plugin",
+  "description": "AesirX BI Joomla plugin",
   "private": true,
   "scripts": {
     "build": "webpack --mode=development",
@@ -65,5 +65,5 @@
     "last 1 version",
     "not dead"
   ],
-  "repository": "https://github.com/aesirxio/wordpress-bi-plugin"
+  "repository": "https://github.com/aesirxio/joomla-bi-plugin"
 }
