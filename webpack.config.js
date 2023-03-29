@@ -24,7 +24,6 @@ module.exports = (env, argv) => {
   if (env != undefined && env.deploy) {
     process.env = {
       wwwDir: wwwDir,
-      projectname: projectname,
     };
   }
 
@@ -52,6 +51,7 @@ module.exports = (env, argv) => {
       new FileManagerPlugin({
         events: {
           onStart: {
+            mkdir: [pluginPath + '/administrator' + component],
             copy: [
               {
                 source: path.resolve(__dirname, './extensions/administrator'),
@@ -161,7 +161,7 @@ module.exports = (env, argv) => {
             archive: [
               {
                 source: './dist/',
-                destination: './dist/' + process.env.projectname + '.zip',
+                destination: './dist/' + projectname + '.zip',
               },
             ],
           },

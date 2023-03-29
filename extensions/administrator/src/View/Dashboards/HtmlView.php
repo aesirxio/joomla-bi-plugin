@@ -80,6 +80,9 @@ class HtmlView extends BaseHtmlView
 
 		$scripts = '
           window.env = {};
+			window.env.REACT_APP_CLIENT_ID = "app";
+			window.env.REACT_APP_CLIENT_SECRET = "secret";
+			window.env.REACT_APP_LICENSE = "LICENSE";
             window.env.REACT_APP_ENDPOINT_URL="' . $params->get('react_app_endpoint_url') . '"
 			window.env.PUBLIC_URL="/administrator/components/com_aesirx_bi";
         ';
