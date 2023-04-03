@@ -108,6 +108,7 @@ module.exports = (env, argv) => {
     },
     resolve: {
       alias: aliasData,
+      fallback: { 'process/browser': require.resolve('process/browser') },
     },
   };
 
