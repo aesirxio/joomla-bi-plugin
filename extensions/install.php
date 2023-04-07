@@ -107,6 +107,10 @@ class Com_Aesirx_BiInstallerScript
     // Common tasks for install or update
     $this->installPlugins($parent);
 
+    $parent
+      ->getParent()
+      ->setRedirectURL('index.php?option=com_config&view=component&component=com_aesirx_bi');
+
     return true;
   }
 
@@ -316,26 +320,5 @@ class Com_Aesirx_BiInstallerScript
     }
 
     $this->manifest = $parent->getManifest();
-  }
-
-  /**
-   * Method to run after an install/update/uninstall method
-   *
-   * @param   string             $type    type of change (install, update or discover_install)
-   * @param   JInstallerAdapter  $parent  class calling this method
-   *
-   * @return  boolean
-   */
-  public function postflight($type, $parent)
-  {
-    if ($type === 'uninstall') {
-      return true;
-    }
-
-    Factory::getApplication()->redirect(
-      'index.php?option=com_config&view=component&component=com_aesirx_bi'
-    );
-
-    return true;
   }
 }
