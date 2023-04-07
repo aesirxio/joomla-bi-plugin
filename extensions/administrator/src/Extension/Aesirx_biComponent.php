@@ -9,7 +9,7 @@
 
 namespace Aesirxbi\Component\Aesirx_bi\Administrator\Extension;
 
-defined('JPATH_PLATFORM') or die;
+defined('JPATH_PLATFORM') or die();
 
 use Aesirxbi\Component\Aesirx_bi\Administrator\Service\Html\AESIRX_BI;
 use Joomla\CMS\Application\SiteApplication;
@@ -30,34 +30,36 @@ use Joomla\CMS\Categories\CategoryServiceInterface;
  *
  * @since  __DEPLOY_VERSION__
  */
-class Aesirx_biComponent extends MVCComponent implements RouterServiceInterface, BootableExtensionInterface, CategoryServiceInterface
+class Aesirx_biComponent extends MVCComponent implements
+  RouterServiceInterface,
+  BootableExtensionInterface,
+  CategoryServiceInterface
 {
-	use AssociationServiceTrait;
-	use RouterServiceTrait;
-	use HTMLRegistryAwareTrait;
-	use CategoryServiceTrait, TagServiceTrait {
-		CategoryServiceTrait::getTableNameForSection insteadof TagServiceTrait;
-		CategoryServiceTrait::getStateColumnForSection insteadof TagServiceTrait;
-	}
+  use AssociationServiceTrait;
+  use RouterServiceTrait;
+  use HTMLRegistryAwareTrait;
+  use CategoryServiceTrait, TagServiceTrait {
+    CategoryServiceTrait::getTableNameForSection insteadof TagServiceTrait;
+    CategoryServiceTrait::getStateColumnForSection insteadof TagServiceTrait;
+  }
 
-	/** @inheritdoc  */
-	public function boot(ContainerInterface $container)
-	{
-		$db = $container->get('DatabaseDriver');
-		$this->getRegistry()->register('aesirx_bi', new AESIRX_BI($db));
-	}
+  /** @inheritdoc  */
+  public function boot(ContainerInterface $container)
+  {
+    $db = $container->get('DatabaseDriver');
+    $this->getRegistry()->register('aesirx_bi', new AESIRX_BI($db));
+  }
 
-	
-/**
- * Returns the table for the count items functions for the given section.
-	 *
-	 * @param   string    The section
-	 *
-	 * * @return  string|null
-	 *
-	 * @since   4.0.0
-	 */
-	    protected function getTableNameForSection(string $section = null)            
-	{
-	}
+  /**
+   * Returns the table for the count items functions for the given section.
+   *
+   * @param   string    The section
+   *
+   * * @return  string|null
+   *
+   * @since   4.0.0
+   */
+  protected function getTableNameForSection(string $section = null)
+  {
+  }
 }

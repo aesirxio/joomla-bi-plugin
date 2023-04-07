@@ -8,18 +8,16 @@
  */
 
 // No direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die();
 
 use Joomla\CMS\Component\ComponentHelper;
 
-$params      = ComponentHelper::getComponent('com_aesirx_bi')->getParams();
+$params = ComponentHelper::getComponent('com_aesirx_bi')->getParams();
 $dataStreams = $params->get('react_app_data_stream', null);
 
-if (empty($dataStreams) || !is_object($dataStreams))
-{
-    return;
+if (empty($dataStreams) || !is_object($dataStreams)) {
+  return;
 }
-
 ?>
 <%= htmlWebpackPlugin.tags.headTags %>
 

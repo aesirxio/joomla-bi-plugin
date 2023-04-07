@@ -10,7 +10,7 @@
 
 namespace Aesirxbi\Component\Aesirx_bi\Administrator\Controller;
 
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or die();
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\Controller\BaseController;
@@ -23,26 +23,26 @@ use Joomla\CMS\Router\Route;
  */
 class DisplayController extends BaseController
 {
-	/**
-	 * The default view.
-	 *
-	 * @var    string
-	 * @since  __DEPLOY_VERSION__
-	 */
-	protected $default_view = 'dashboards';
+  /**
+   * The default view.
+   *
+   * @var    string
+   * @since  __DEPLOY_VERSION__
+   */
+  protected $default_view = 'dashboards';
 
-	/**
-	 * Method to display a view.
-	 *
-	 * @param   boolean  $cachable   If true, the view output will be cached
-	 * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link InputFilter::clean()}.
-	 *
-	 * @return  BaseController|boolean  This object to support chaining.
-	 *
-	 * @since   __DEPLOY_VERSION__
-	 */
-	public function display($cachable = false, $urlparams = array())
-	{
-		return parent::display();
-	}
+  /**
+   * Method to display a view.
+   *
+   * @param   boolean  $cachable   If true, the view output will be cached
+   * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link InputFilter::clean()}.
+   *
+   * @return  BaseController|boolean  This object to support chaining.
+   *
+   * @since   __DEPLOY_VERSION__
+   */
+  public function display($cachable = false, $urlparams = [])
+  {
+    return parent::display();
+  }
 }
