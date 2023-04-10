@@ -11,7 +11,7 @@ namespace Aesirxbi\Component\Aesirx_bi\Administrator\Extension;
 
 defined('JPATH_PLATFORM') or die();
 
-use Aesirxbi\Component\Aesirx_bi\Administrator\Service\Html\AESIRX_BI;
+use Aesirxbi\Component\Aesirx_bi\Administrator\Service\Html\Aesirx_Bi;
 use Joomla\CMS\Application\SiteApplication;
 use Joomla\CMS\Association\AssociationServiceInterface;
 use Joomla\CMS\Association\AssociationServiceTrait;
@@ -47,7 +47,7 @@ class Aesirx_biComponent extends MVCComponent implements
   public function boot(ContainerInterface $container)
   {
     $db = $container->get('DatabaseDriver');
-    $this->getRegistry()->register('aesirx_bi', new AESIRX_BI($db));
+    $this->getRegistry()->register('aesirx_bi', new Aesirx_Bi($db));
   }
 
   /**

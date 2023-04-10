@@ -22,7 +22,7 @@ use Joomla\Database\DatabaseDriver;
  *
  * @since  __DEPLOY_VERSION__
  */
-class AESIRX_BI
+class Aesirx_Bi
 {
   use DatabaseAwareTrait;
 
