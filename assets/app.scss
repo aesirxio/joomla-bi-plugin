@@ -1,8 +1,16 @@
+.com_aesirx_bi {
+  #content {
+    overflow: hidden;
+  }
+}
 #biapp {
+  max-height: calc(100vh - 200px);
   #all_header {
     top: 150px !important;
   }
-
+  .main_content {
+    max-height: calc(100vh - 200px) !important;
+  }
   .loader {
     display: flex;
     align-items: center;

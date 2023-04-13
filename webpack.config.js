@@ -82,6 +82,10 @@ module.exports = (env, argv) => {
                 ),
                 destination: pluginPath + '/administrator' + component + '/assets/images/',
               },
+              {
+                source: path.resolve(__dirname, './node_modules/aesirx-bi-app/public/assets/data/'),
+                destination: pluginPath + '/administrator' + component + '/assets/data/',
+              },
             ],
           },
         },
