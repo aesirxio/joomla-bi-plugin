@@ -1,8 +1,18 @@
-#biapp {
-  #all_header {
-    top: 150px !important;
+.com_aesirx_bi {
+  #content {
+    overflow: hidden;
   }
-
+}
+#biapp {
+  max-height: calc(100vh - 200px);
+  #all_header {
+    top: 0 !important;
+    position: sticky !important;
+  }
+  .main_content {
+    max-height: calc(100vh - 200px) !important;
+    padding-top: 0 !important;
+  }
   .loader {
     display: flex;
     align-items: center;
