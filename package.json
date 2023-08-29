@@ -34,13 +34,13 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.29.1",
+    "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.3.0",
     "css-loader": "^6.7.3",
     "cssnano": "^6.0.0",
     "del": "^7.0.0",
     "dotenv": "^16.0.3",
-    "eslint": "^8.37.0",
+    "eslint": "^8.48.0",
     "eslint-plugin-react": "^7.32.2",
     "filemanager-webpack-plugin": "^8.0.0",
     "html-webpack-plugin": "^5.5.0",
@@ -66,5 +66,15 @@
     "last 1 version",
     "not dead"
   ],
-  "repository": "https://github.com/aesirxio/joomla-bi-plugin"
+  "repository": "https://github.com/aesirxio/joomla-bi-plugin",
+  "resolutions": {
+    "tough-cookie": "^4",
+    "semver": "^7",
+    "jsdom": "^16",
+    "nth-check": "^2",
+    "postcss": "^8",
+    "json5": "^2",
+    "minimatch": "^5",
+    "d3-color": "^3.1.0"
+  }
 }
